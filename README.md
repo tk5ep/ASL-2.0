@@ -2,7 +2,7 @@
 
 This is a fork of the Asterisk source package for AllStarLink and the files to build the ASL 2.0.0+ distribution.
 
-Some commits has been done :
+Some commits have been done :
 
 30/03/23 - /asterisk/main/say.c  
 corrected time reading in french, bug : missing delay, changed minutes to feminine : "f"  
