@@ -256,7 +256,8 @@
  *
  * if type is 'E' (for "evaluate statement" (or perhaps "equals") ) then the var-spec is a full statement containing
  *    expressions, variables and operators per the expression evaluation built into Asterisk.
- * if type is 'T' (for "going True"), var-spec is a single (already-defined) variable name, and the result will be 1
+ * if type is 'T' (for "going True"), var-spec is a single (f
+ -defined) variable name, and the result will be 1
  *    if the varible has just gone from 0 to 1.
  * if type is 'F' (for "going False"), var-spec is a single (already-defined) variable name, and the result will be 1
  *    if the varible has just gone from 1 to 0.
@@ -9897,7 +9898,7 @@ treataslocal:
 	    case REMALREADY:
 		/* wait a little bit */
 		if (!wait_interval(myrpt, DLY_TELEM, mychannel))
-			res = ast_streamfile(mychannel, "rpt/node", mychannel->language);
+			res = ast_streamfile(mychannel, "digits/one", mychannel->language);
 		if (!res) 
 			res = ast_waitstream(mychannel, "");
 		res = ast_streamfile(mychannel, "rpt/remote_already", mychannel->language);		
