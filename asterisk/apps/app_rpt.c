@@ -8857,13 +8857,6 @@ struct	tm localtm;
 	if (!strcasecmp(strs[0],"REMALREADY"))
 	{
 		if (!wait_interval(myrpt, DLY_TELEM, mychannel))
-			
-			saynode(myrpt,mychannel,strs[1]);
-		if (!res) 
-			res = ast_waitstream(mychannel, "");
-		
-		
-		
 			sayfile(mychannel, "rpt/remote_already");
 		return;
 	}
