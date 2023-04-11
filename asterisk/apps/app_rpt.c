@@ -9897,7 +9897,10 @@ treataslocal:
 	    case REMALREADY:
 		/* wait a little bit */
 		if (!wait_interval(myrpt, DLY_TELEM, mychannel))
-			res = ast_streamfile(mychannel, "rpt/remote_already", mychannel->language);
+			res = saynode(myrpt,mychannel,myrpt->name);
+		if (!res) 
+			res = ast_waitstream(mychannel, "");
+		res = ast_streamfile(mychannel, "rpt/remote_already", mychannel->language);		
 		break;
 	    case REMNOTFOUND:
 		/* wait a little bit */
