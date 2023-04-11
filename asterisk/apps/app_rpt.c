@@ -8857,7 +8857,14 @@ struct	tm localtm;
 	if (!strcasecmp(strs[0],"REMALREADY"))
 	{
 		if (!wait_interval(myrpt, DLY_TELEM, mychannel))
-			sayfile(mychannel, "digits/2");
+			
+			saynode(myrpt,mychannel,strs[1]);
+		if (!res) 
+			res = ast_waitstream(mychannel, "");
+		
+		
+		
+			sayfile(mychannel, "rpt/remote_already");
 		return;
 	}
 	if (!strcasecmp(strs[0],"REMNOTFOUND"))
@@ -9897,7 +9904,7 @@ treataslocal:
 	    case REMALREADY:
 		/* wait a little bit */
 		if (!wait_interval(myrpt, DLY_TELEM, mychannel))
-		res = ast_streamfile(mychannel, "digits/1", mychannel->language);		
+		res = ast_streamfile(mychannel, "rpt/remote_already", mychannel->language);		
 		break;
 	    case REMNOTFOUND:
 		/* wait a little bit */
